@@ -51,3 +51,11 @@ buildNumber.properties
 /dist/
 /nbdist/
 /.nb-gradle/
+
+# VS Code directories
+.vscode/
+*.code-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
