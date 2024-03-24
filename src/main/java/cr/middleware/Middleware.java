@@ -1,12 +1,12 @@
 package cr.middleware;
 
 public abstract class Middleware {
-    protected Middleware next;
+  protected Middleware next;
 
-    public Middleware use(Middleware middleware) {
-        this.next = middleware;
-        return middleware;
-    }
+  public Middleware use(Middleware middleware) {
+    this.next = middleware;
+    return this.next;
+  }
 
-    public abstract void run(Object request);
+  public abstract void run(Object request);
 }

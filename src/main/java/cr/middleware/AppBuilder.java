@@ -1,25 +1,21 @@
 package cr.middleware;
 
-import java.io.IOException;
-import cr.middleware.*;
- 
+import java.util.Scanner;
 
 public class AppBuilder extends Middleware {
-    public AppBuilder() {}
 
-    @Override
-    public void run(Object request) {
-        System.out.println("Begin AppBuilder.");
+  public AppBuilder() {}
 
-        if (next != null) {
-            next.run(request);
-        }
+  @Override
+  public void run(Object request) {
+    System.out.println("Begin AppBuilder.");
 
-        System.out.println("End AppBuilder.");
-        try {
-            System.in.read();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    if (next != null) {
+      next.run(request);
     }
+
+    System.out.println("End AppBuilder.");
+
+    new Scanner(System.in).nextLine();
+  }
 }

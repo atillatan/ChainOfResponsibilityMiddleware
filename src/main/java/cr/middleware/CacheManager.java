@@ -1,20 +1,23 @@
 package cr.middleware;
 
 public class CacheManager extends Middleware {
-    public CacheManager() {}
 
-    @Override
-    public void run(Object request) {
-        System.out.println("Begin CacheManager.");
+  public CacheManager() {}
 
-        if (next != null) {
-            next.run(request);
-        }
+  @Override
+  public void run(Object request) {
+    System.out.println("Begin CacheManager.");
 
-        System.out.println("End CacheManager.");
+    // Handle request before
+    System.out.println("CacheManager handling request:" + request);
+
+    if (next != null) {
+      next.run(request);
     }
 
-    public static Middleware useCacheManager(Middleware middleware) {
-        return middleware.use(new CacheManager());
-    }
+    // Handle request after
+    System.out.println("CacheManager handled request:" + request);
+
+    System.out.println("End CacheManager.");
+  }
 }

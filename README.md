@@ -1,6 +1,6 @@
-# JavaChainMiddleware
+# ChainOfResponsibilityMiddleware
 
-JavaChainMiddleware is a Java-based project demonstrating the implementation of the Chain of Responsibility design pattern applied to middleware development. This approach is particularly useful for creating flexible and decoupled systems where requests pass through a sequence of handlers or middleware components.
+ChainOfResponsibilityMiddleware is a Java-based project demonstrating the implementation of the Chain of Responsibility design pattern applied to middleware development. This approach is particularly useful for creating flexible and decoupled systems where requests pass through a sequence of handlers or middleware components.
 
 ## Description
 
@@ -19,7 +19,7 @@ This pattern is widely used in web server frameworks and applications, allowing 
 
 ### Prerequisites
 
-- Java JDK 11 or later.
+- Java JDK 21 or later.
 - Maven or Gradle for dependency management (optional).
 
 ### Installing
@@ -27,13 +27,13 @@ This pattern is widely used in web server frameworks and applications, allowing 
 Clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/atillatan/JavaChainMiddleware.git
+git clone https://github.com/atillatan/ChainOfResponsibilityMiddleware.git
 ```
 
 Navigate to the project directory:
 
 ```bash
-cd JavaChainMiddleware
+cd ChainOfResponsibilityMiddleware
 ```
 
 Build the project using Maven:
@@ -53,7 +53,7 @@ gradle build
 Execute the main class to run the demo application:
 
 ```bash
-java -cp target/JavaChainMiddleware-1.0-SNAPSHOT.jar com.cr.Main
+java -cp target/ChainOfResponsibilityMiddleware-1.0-SNAPSHOT.jar cr.middleware.MiddlewareApplication
 ```
 
 ## Usage
@@ -63,15 +63,12 @@ To use this pattern in your project, create new middleware components by extendi
 Example:
 
 ```java
-AuthorizationMiddleware authMiddleware = new AuthorizationMiddleware();
-LoggingMiddleware logMiddleware = new LoggingMiddleware();
-CacheMiddleware cacheMiddleware = new CacheMiddleware();
+ app.use(new LogManager())
+    .use(new AuthorizationManager())
+    .use(new CacheManager()); 
 
-authMiddleware.setNext(logMiddleware);
-logMiddleware.setNext(cacheMiddleware);
-
-Request request = new Request();
-authMiddleware.handle(request);
+    // Run 1
+    app.run("Example data");
 ```
 
 ## Contributing
