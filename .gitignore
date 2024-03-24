@@ -1,7 +1,7 @@
 # Compiled class files
 *.class
 
-# Log files
+# Log file
 *.log
 
 # BlueJ files
@@ -35,8 +35,8 @@ buildNumber.properties
 
 # IntelliJ IDEA
 .idea/
-*.iml
 *.iws
+*.iml
 *.ipr
 
 # Eclipse
@@ -52,10 +52,16 @@ buildNumber.properties
 /nbdist/
 /.nb-gradle/
 
-# VS Code directories
+# VS Code
 .vscode/
 *.code-workspace
+.history/
 
-# OS files
+# OS-specific files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
