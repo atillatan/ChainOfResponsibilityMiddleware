@@ -15,8 +15,8 @@ public class MiddlewareApplication {
       // AuthorizationManager handles authentication and authorization.
       // CacheManager is used for caching responses to improve performance.
       app.use(new LogManager())
-         .use(new AuthorizationManager())
-         .use(new CacheManager());
+        .use(new AuthorizationManager())
+        .use(new CacheManager());
 
       // After setting up the middleware, run the application with some example data.
       // This demonstrates how a request would be processed through the middleware chain.
